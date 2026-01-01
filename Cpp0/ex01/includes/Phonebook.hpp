@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 19:01:11 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/12/31 16:35:48 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2026/01/01 22:47:20 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,9 +26,9 @@ class Phonebook
 		std::string formate_args(std::string text);
 	public:
 		Phonebook();
-		~Phonebook();
 		void	add();
 		void	search();
+		int		check_number(std::string str);
 };
 
 #endif

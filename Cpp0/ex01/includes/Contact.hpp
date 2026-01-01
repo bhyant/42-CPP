@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 18:54:06 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/12/31 15:45:40 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2026/01/01 22:22:15 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,6 @@ class Contact
 		std::string	_darkestsecret;
 
 	public:
-		Contact();
-		~Contact();
 		void		set_firstname(std::string firstname);
 		void		set_lastname(std::string lastname);
 		void		set_nickname(std::string nickname);

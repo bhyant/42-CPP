@@ -6,7 +6,7 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/28 19:04:35 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2025/12/31 16:48:24 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2026/01/01 22:50:11 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,16 @@
 Phonebook::Phonebook()
 {
 	_contact_count = 0;
+}
+
+int	Phonebook::check_number(std::string str)
+{
+	for (int i = 0; str[i]; i++)
+	{
+		if (!isdigit(str[i]))
+			return 0;
+	}
+	return 1;
 }
 
 void	Phonebook::add()
@@ -51,6 +61,11 @@ void	Phonebook::add()
 		std::cout << "Enter your Phone Number: ";
 		if (!std::getline(std::cin, input))
 			return ;
+		if (!check_number(input))
+		{
+			std::cout << "Invalid phone number. Please enter digits only." << std::endl;
+			input = "";
+		}
 	}
 	_contact[pos].set_phonenumber(input);
 	input = "";
@@ -67,9 +82,14 @@ void	Phonebook::add()
 
 void	Phonebook::search()
 {
+	if (_contact_count == 0)
+	{
+		std::cout << "Phonebook is empty." << std::endl;
+		return ;
+	}
 	std::cout << " ___________________________________________ " << std::endl;
-    std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
-    std::cout << "|----------|----------|----------|----------|" << std::endl;
+	std::cout << "|     Index|First Name| Last Name|  Nickname|" << std::endl;
+	std::cout << "|----------|----------|----------|----------|" << std::endl;
 
 	for(int i = 0; i < _contact_count && i < 8; i++)
 	{
@@ -86,7 +106,9 @@ void	Phonebook::search()
 	std::string input = "";
 
 	std::cout << "Enter the index of the contact you want to view: ";
-	if (std::getline(std::cin, input) && input.length() == 1 && isdigit(input[0]))
+	if (!std::getline(std::cin, input))
+		return ;
+	if (input.length() == 1 && isdigit(input[0]))
 		index = input[0] - '0';
 	if (index >= 0 && index < _contact_count && index < 8)
 	{
