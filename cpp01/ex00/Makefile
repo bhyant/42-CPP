@@ -6,11 +6,11 @@
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/11 13:00:30 by tbhuiyan          #+#    #+#              #
-#    Updated: 2026/01/03 17:05:36 by tbhuiyan         ###   ########.fr        #
+#    Updated: 2026/01/06 02:21:36 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = BraiiiiiiinnnzzzZ
+NAME        = zombie
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
@@ -22,8 +22,9 @@ INC_DIR     = includes
 
 INCLUDES    = -I$(INC_DIR)
 
-#Wildcard Interdit a la norme mettre les sources manuellement
-SRCS        = $(shell find $(SRC_DIR) -name '*.cpp')
+SRCS        = $(SRC_DIR)/main.cpp \
+			  $(SRC_DIR)/Zombie.cpp
+
 OBJS        = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS        = $(OBJS:.o=.d)
 

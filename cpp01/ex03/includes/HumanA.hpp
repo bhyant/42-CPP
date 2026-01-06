@@ -1,9 +1,9 @@
 #ifndef HUMANA_H
-#define HUMANA_H
+# define HUMANA_H
 
-#include <iomanip>
-#include <string>
-#include "Weapon.hpp"
+# include <iomanip>
+# include <string>
+# include "Weapon.hpp"
 
 class HumanA
 {
@@ -12,8 +12,8 @@ class HumanA
 		Weapon&		_weapon;
 
 	public:
-		HumanA(std::string name, Weapon& weapon)
+		HumanA(std::string name, Weapon& weapon);
 		void	attack();
-}
+};
 
 #endif

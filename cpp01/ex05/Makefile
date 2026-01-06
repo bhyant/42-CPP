@@ -10,7 +10,7 @@
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = brain
+NAME        = harl
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
@@ -22,7 +22,8 @@ INC_DIR     = includes
 
 INCLUDES    = -I$(INC_DIR)
 
-SRCS        = $(SRC_DIR)/main.cpp
+SRCS        = $(SRC_DIR)/main.cpp \
+			  $(SRC_DIR)/Harl.cpp
 
 OBJS        = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS        = $(OBJS:.o=.d)

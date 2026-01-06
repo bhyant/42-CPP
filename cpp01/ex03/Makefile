@@ -6,11 +6,11 @@
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/05 22:18:40 by tbhuiyan          #+#    #+#              #
-#    Updated: 2026/01/05 22:45:32 by tbhuiyan         ###   ########.fr        #
+#    Updated: 2026/01/06 02:21:36 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = Unnecessary_violence
+NAME        = violence
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
@@ -22,8 +22,11 @@ INC_DIR     = includes
 
 INCLUDES    = -I$(INC_DIR)
 
-#Wildcard Interdit a la norme mettre les sources manuellement
-SRCS        = $(shell find $(SRC_DIR) -name '*.cpp')
+SRCS        = $(SRC_DIR)/main.cpp \
+			  $(SRC_DIR)/Weapon.cpp \
+			  $(SRC_DIR)/HumanA.cpp \
+			  $(SRC_DIR)/HumanB.cpp
+
 OBJS        = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS        = $(OBJS:.o=.d)
 

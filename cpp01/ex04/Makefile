@@ -5,12 +5,12 @@
 #                                                     +:+ +:+         +:+      #
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2026/01/05 22:18:40 by tbhuiyan          #+#    #+#              #
+#    Created: 2026/01/06 00:00:00 by tbhuiyan          #+#    #+#              #
 #    Updated: 2026/01/06 02:21:36 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = brain
+NAME        = sed
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
@@ -48,14 +48,13 @@ $(OBJ_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(OBJ_DIR)
 	@$(eval CURRENT_FILE=$(shell echo $$(($(CURRENT_FILE)+1))))
 	@$(eval PERCENT=$(shell echo $$(($(CURRENT_FILE)*100/$(TOTAL_FILES)))))
-	@$(eval FILLED=$(shell echo $$(($(CURRENT_FILE)*$(PROGRESS_BAR_WIDTH)/$(TOTAL_FILES)))))
-	@printf "$(CYAN)[$(RESET)"
-	@printf "$(GREEN)%*s" $(FILLED) | tr ' ' '='
-	@printf "%*s" $$(($(PROGRESS_BAR_WIDTH)-$(FILLED))) | tr ' ' '-'
-	@printf "$(CYAN)]$(RESET) $(YELLOW)%3d%%$(RESET) Compiling: $(notdir $<)   \r" $(PERCENT)
+	@$(eval FILLED=$(shell echo $$(($(PERCENT)*$(PROGRESS_BAR_WIDTH)/100))))
+	@$(eval EMPTY=$(shell echo $$(($(PROGRESS_BAR_WIDTH)-$(FILLED)))))
+	@printf "\r$(CYAN)[$(GREEN)"
+	@printf "%0.s=" $$(seq 1 $(FILLED))
+	@printf "$(CYAN)%0.s " $$(seq 1 $(EMPTY))
+	@printf "]$(RESET) $(PERCENT)%% Compiling: $(notdir $<)   "
 	@$(CXX) $(CXXFLAGS) $(DEPFLAGS) $(INCLUDES) -c $< -o $@
-
--include $(DEPS)
 
 clean:
 	@rm -rf $(OBJ_DIR)
@@ -66,5 +65,7 @@ fclean: clean
 	@echo "$(RED)✓ Full clean done$(RESET)"
 
 re: fclean all
+
+-include $(DEPS)
 
 .PHONY: all clean fclean re
