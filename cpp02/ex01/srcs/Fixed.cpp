@@ -1,5 +1,6 @@
 #include "../includes/Fixed.hpp"
-#include <fstream>
+#include <iostream>
+#include <cmath>
 
 Fixed::Fixed()
 {
@@ -54,3 +55,13 @@ std::ostream	&operator<<(std::ostream &o, Fixed const &i)
 	return o;
 }
 
+int	Fixed::getRawBits(void) const
+{
+	std::cout << "getRawBits member function called" << std::endl;
+	return this->_fixedPointValue;
+}
+
+void	Fixed::setRawBits(int const raw)
+{
+	this->_fixedPointValue = raw;
+}
