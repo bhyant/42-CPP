@@ -6,11 +6,11 @@
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/05 22:18:40 by tbhuiyan          #+#    #+#              #
-#    Updated: 2026/01/10 13:11:56 by tbhuiyan         ###   ########.fr        #
+#    Updated: 2026/01/10 13:11:27 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = ScavTrap
+NAME        = FragTrap
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
@@ -24,6 +24,7 @@ INCLUDES    = -I$(INC_DIR)
 
 SRCS        = $(SRC_DIR)/ClapTrap.cpp \
 			  $(SRC_DIR)/ScavTrap.cpp \
+			  $(SRC_DIR)/FragTrap.cpp \
 			  $(SRC_DIR)/main.cpp
 
 OBJS        = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
