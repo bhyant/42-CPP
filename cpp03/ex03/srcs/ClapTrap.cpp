@@ -6,14 +6,14 @@
 /*   By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/09 15:22:46 by tbhuiyan          #+#    #+#             */
-/*   Updated: 2026/01/11 10:26:58 by tbhuiyan         ###   ########.fr       */
+/*   Updated: 2026/01/11 10:28:25 by tbhuiyan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ClapTrap.hpp"
 #include <iostream>
 
-ClapTrap::ClapTrap() : _name("No_Name"), _hitPoint(10), _energyPoint(10), _attackDamage(0)
+ClapTrap::ClapTrap() : _name("Default"), _hitPoint(10), _energyPoint(10), _attackDamage(0)
 {
 	std::cout << "ClapTrap " << this->_name << " created" << std::endl;
 }
