@@ -6,11 +6,11 @@
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/05 22:18:40 by tbhuiyan          #+#    #+#              #
-#    Updated: 2026/01/11 16:25:49 by tbhuiyan         ###   ########.fr        #
+#    Updated: 2026/01/11 21:48:12 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = Animal
+NAME        = Animal_Brain
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
@@ -27,6 +27,7 @@ SRCS        = $(SRC_DIR)/Animal.cpp \
 			  $(SRC_DIR)/Cat.cpp \
 			  $(SRC_DIR)/WrongAnimal.cpp \
 			  $(SRC_DIR)/WrongCat.cpp \
+			  $(SRC_DIR)/Brain.cpp \
 			  $(SRC_DIR)/main.cpp
 
 OBJS        = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
