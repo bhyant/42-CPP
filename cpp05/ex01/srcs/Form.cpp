@@ -1,7 +1,9 @@
 #include "../includes/Form.hpp"
-#include <string>
+#include "../includes/Bureaucrat.hpp"
+#include <iostream>
+#include <ostream>
 
-Form::Form() : _name("Defaut"), _signed(false), _gradeToExec(150), _gradeToSign(150) 
+Form::Form() : _name("Defaut"), _signed(false), _gradeToSign(150), _gradeToExec(150) 
 {
 	if (this->_gradeToSign > 150 || this->_gradeToExec > 150)
 		throw GradeTooLowException();
@@ -10,7 +12,7 @@ Form::Form() : _name("Defaut"), _signed(false), _gradeToExec(150), _gradeToSign(
 	std::cout << "Form: " << this->_name << " created" << std::endl;
 }
 
-Form::Form(const std::string &name, int gradeToSign, int GradeToExec): _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToSign)
+Form::Form(const std::string &name, int gradeToSign, int gradeToExec): _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToExec)
 {
 	if (this->_gradeToSign > 150 || this->_gradeToExec > 150)
 		throw GradeTooLowException();
@@ -29,6 +31,11 @@ Form	&Form::operator=(const Form &src)
 	if (this != &src)
 		this->_signed = src._signed;
 	return *this;
+}
+
+Form::~Form()
+{
+	std::cout << "Form: " << this->_name << " destroyed" << std::endl;
 }
 
 std::string	Form::getName() const
@@ -56,4 +63,11 @@ void	Form::beSigned(const Bureaucrat &bureaucrat)
 	if (bureaucrat.getGrade() > this->_gradeToSign)
 		throw GradeTooLowException();
 	this->_signed = true;
+}
+
+std::ostream	&operator<<(std::ostream &o, const Form &form)
+{
+	o << "Form: " << form.getName() << " , are " << (form.isSigned() ? "signed" : "not signed") 
+		<< " , grade to sign: " << form.getSignGrade() << " , grade to execute: " << form.getExecGrade() << std::endl;
+	return o;
 }
