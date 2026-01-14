@@ -3,11 +3,19 @@
 
 Form::Form() : _name("Defaut"), _signed(false), _gradeToExec(150), _gradeToSign(150) 
 {
+	if (this->_gradeToSign > 150 || this->_gradeToExec > 150)
+		throw GradeTooLowException();
+	else if (this->_gradeToSign < 1 || this->_gradeToExec < 1)
+		throw GradeTooHighException();
 	std::cout << "Form: " << this->_name << " created" << std::endl;
 }
 
 Form::Form(const std::string &name, int gradeToSign, int GradeToExec): _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExec(gradeToSign)
 {
+	if (this->_gradeToSign > 150 || this->_gradeToExec > 150)
+		throw GradeTooLowException();
+	else if (this->_gradeToSign < 1 || this->_gradeToExec < 1)
+		throw GradeTooHighException();
 	std::cout << "Form: " << this->_name << " created" << std::endl;
 }
 
@@ -41,4 +49,11 @@ int	Form::getExecGrade() const
 int Form::getSignGrade() const
 {
 	return this->_gradeToSign;
+}
+
+void	Form::beSigned(const Bureaucrat &bureaucrat)
+{
+	if (bureaucrat.getGrade() > this->_gradeToSign)
+		throw GradeTooLowException();
+	this->_signed = true;
 }

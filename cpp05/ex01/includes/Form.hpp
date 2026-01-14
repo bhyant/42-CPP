@@ -1,10 +1,9 @@
 #ifndef FORM_HPP
 #define FORM_HPP
 
-#include "../includes/Bureaucrat.hpp"
-#include <exception>
-#include <ostream>
 #include <string>
+
+class Bureaucrat;
 
 class Form 
 {
