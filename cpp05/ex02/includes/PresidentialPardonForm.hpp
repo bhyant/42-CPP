@@ -15,7 +15,7 @@ class PresidentialPardonForm : public AForm
 		virtual ~PresidentialPardonForm();
 		PresidentialPardonForm &operator=(const PresidentialPardonForm &src);
 		std::string	getTarget() const;
-		virtual void	excuteAction() const;
+		virtual void	executeAction() const;
 };
 
 #endif

@@ -6,7 +6,7 @@
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/05 22:18:40 by tbhuiyan          #+#    #+#              #
-#    Updated: 2026/01/14 21:19:04 by tbhuiyan         ###   ########.fr        #
+#    Updated: 2026/01/17 11:35:40 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,10 @@ INC_DIR     = includes
 INCLUDES    = -I$(INC_DIR)
 
 SRCS        = $(SRC_DIR)/Bureaucrat.cpp \
-			  $(SRC_DIR)/Form.cpp \
+			  $(SRC_DIR)/AForm.cpp \
+			  $(SRC_DIR)/PresidentialPardonForm.cpp \
+			  $(SRC_DIR)/RobotomyRequestForm.cpp \
+			  $(SRC_DIR)/ShrubberyCreationForm.cpp \
 			  $(SRC_DIR)/main.cpp
 
 OBJS        = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
