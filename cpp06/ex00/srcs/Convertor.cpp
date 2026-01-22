@@ -29,24 +29,17 @@ bool	Convertor::isSimpleChar(const std::string &val)
 	return false;
 }
 
-bool	Convertor::isLiteral(const std::string &val)
+double	Convertor::convertToDouble(const std::string &input)
 {
-	if (val == "nan" || val == "nanf" || val == "+inf" || val == "-inf" || val == "+inff" || val == "-inff" || val == "inf" || val == "inff")
-		return true;
-	return false;
-}
-
-double	Convertor::ConvertToDouble(const std::string &val)
-{
-	if (isSimpleChar(val))
-		return static_cast<double>(val[1]);
-	if (val == "nan" || val == "nanf")
+	if (isSimpleChar(input))
+		return static_cast<double>(input[1]);
+	if (input == "nan" || input == "nanf")
 		return std::numeric_limits<double>::quiet_NaN();
-	if (val == "+inf" || val == "+inff" || val == "inf" || val == "inff")
+	if (input == "+inf" || input == "+inff" || input == "inf" || input == "inff")
 		return std::numeric_limits<double>::infinity();
-	if (val == "-inf" || val == "-inff")
+	if (input == "-inf" || input == "-inff")
 		return std::numeric_limits<double>::infinity();
-	std::string	normalval = val;
+	std::string	normalval = input;
 	if (!normalval.empty() && normalval[normalval.length() - 1] == 'f')
 		normalval = normalval.substr(0, normalval.length() - 1);
 	char	*endPtr;
@@ -59,4 +52,85 @@ double	Convertor::ConvertToDouble(const std::string &val)
 	return value;
 }
 
+void	Convertor::printChar(double val)
+{
+	std::cout << "char: ";
+	if (val < 0 || val > 127 || std::isnan(val) || std::isinf(val))
+	{
+		std::cout << "impossible" << std::endl;
+		return;
+	}
+	char c = static_cast<char>(val);
+	if (!std::isprint(c))
+	{
+		std::cout << "Non printable" << std::endl;
+		return ;
+	}
+	std::cout << "'" << c << "'" << std::endl;
+}
 
+void	Convertor::printInt(double val)
+{
+	std::cout << "int: ";
+	if (val < INT_MIN || val > INT_MAX || std::isnan(val) || std::isinf(val))
+	{
+		std::cout << "impossible" << std::endl;
+		return ;
+	}
+	std::cout << static_cast<int>(val) << std::endl;
+}
+
+void	Convertor::printFloat(double val)
+{
+	std::cout << "float: ";
+	float res = static_cast<float>(val);
+	if (std::isnan(val))
+	{
+		std::cout << "nanf" << std::endl;
+		return ;
+	}
+	if (std::isinf(val))
+	{
+		if (val > 0)
+			std::cout << "+inff" << std::endl;
+		else
+			std::cout << "-inff" << std::endl;
+		return ;
+	}
+	std::cout << res;
+	if (res == static_cast<int>(res))
+		std::cout << ".0";
+	std::cout << "f" << std::endl;
+}
+
+void	Convertor::printDouble(double val)
+{
+	std::cout << "double: ";
+	if (std::isnan(val))
+	{
+		std::cout << "nan" << std::endl;
+		return ;
+	}
+	if (std::isinf(val))
+	{
+		if (val > 0)
+			std::cout << "+inff" << std::endl;
+		else
+			std::cout << "-inff" << std::endl;
+		return ;
+	}
+	std::cout << val;
+	if (val == static_cast<int>(val))
+		std::cout << ".0";
+	std::cout << std::endl;
+}
+
+void	Convertor::convert(const std::string &input)
+{
+	double val = convertToDouble(input);
+
+	printChar(val);
+	printInt(val);
+	printDouble(val);
+	printFloat(val);
+}

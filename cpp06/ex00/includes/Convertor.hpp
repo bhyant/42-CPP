@@ -21,8 +21,7 @@ class Convertor
 		static void printFloat(double val);
 		static void printDouble(double val);
 		static bool isSimpleChar(const std::string &val);
-		static bool isLiteral(const std::string &val);
-		static double ConvertToDouble(const std::string &val);
+		static double convertToDouble(const std::string &val);
 
 	public:
 		static void convert(const std::string &val);
