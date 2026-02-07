@@ -127,8 +127,10 @@ void	ScalarConvertor::printDouble(double val)
 
 void	ScalarConvertor::convert(const std::string &input)
 {
-	double val = convertToDouble(input);
+	if (!convertToDouble(input))
+		return ;
 
+	double val = convertToDouble(input);
 	printChar(val);
 	printInt(val);
 	printDouble(val);

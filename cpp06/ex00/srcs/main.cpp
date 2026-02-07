@@ -1,4 +1,4 @@
-#include "../includes/Convertor.hpp"
+#include "../includes/ScalarConvertor.hpp"
 
 int	main(int ac,char **av)
 {

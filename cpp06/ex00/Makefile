@@ -6,11 +6,11 @@
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/05 22:18:40 by tbhuiyan          #+#    #+#              #
-#    Updated: 2026/01/22 13:05:26 by tbhuiyan         ###   ########.fr        #
+#    Updated: 2026/02/07 19:36:02 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = Convert
+NAME        = ScalarConvert
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98
@@ -22,7 +22,7 @@ INC_DIR     = includes
 
 INCLUDES    = -I$(INC_DIR)
 
-SRCS        = $(SRC_DIR)/Convertor.cpp \
+SRCS        = $(SRC_DIR)/ScalarConvertor.cpp \
 			  $(SRC_DIR)/main.cpp
 
 OBJS        = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)

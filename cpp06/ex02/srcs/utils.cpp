@@ -3,7 +3,6 @@
 #include "../includes/C.hpp"
 #include <cstdlib>
 #include <ctime>
-#include <typeinfo>
 
 Base* generate(void)
 {
@@ -57,17 +56,17 @@ void	identify(Base& p)
 		(void)dynamic_cast<A&>(p);
 		std::cout << "A" << std::endl;
 		return ;
-	} catch (std::bad_cast&) {}
+	} catch (std::exception&) {}
 	try {
 		(void)dynamic_cast<B&>(p);
 		std::cout << "B" << std::endl;
 		return;
-	} catch (std::bad_cast&) {}
+	} catch (std::exception&) {}
 	try {
 		(void)dynamic_cast<C&>(p);
 		std::cout << "C" << std::endl;
 		return ;
-	} catch (std::bad_cast&) {
+	} catch (std::exception&) {
 		std::cout << "Unknown type" << std::endl;
 	}
 }
