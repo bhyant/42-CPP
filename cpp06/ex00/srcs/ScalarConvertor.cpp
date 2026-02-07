@@ -1,35 +1,35 @@
-#include "../includes/Convertor.hpp"
+#include "../includes/ScalarConvertor.hpp"
 #include <cstdlib>
 #include <limits>
 #include <string>
 
-Convertor::Convertor()
+ScalarConvertor::ScalarConvertor()
 {
 }
 
-Convertor::Convertor(const Convertor &src)
+ScalarConvertor::ScalarConvertor(const ScalarConvertor &src)
 {
 	(void)src;
 }
 
-Convertor &Convertor::operator=(const Convertor &src)
+ScalarConvertor &ScalarConvertor::operator=(const ScalarConvertor &src)
 {
 	(void)src;
 	return *this;
 }
 
-Convertor::~Convertor()
+ScalarConvertor::~ScalarConvertor()
 {
 }
 
-bool	Convertor::isSimpleChar(const std::string &val)
+bool	ScalarConvertor::isSimpleChar(const std::string &val)
 {
 	if (val.length() == 3 && val[0] == '\'' && val[2] == '\'')
 		return true;
 	return false;
 }
 
-double	Convertor::convertToDouble(const std::string &input)
+double	ScalarConvertor::convertToDouble(const std::string &input)
 {
 	if (isSimpleChar(input))
 		return static_cast<double>(input[1]);
@@ -38,7 +38,7 @@ double	Convertor::convertToDouble(const std::string &input)
 	if (input == "+inf" || input == "+inff" || input == "inf" || input == "inff")
 		return std::numeric_limits<double>::infinity();
 	if (input == "-inf" || input == "-inff")
-		return std::numeric_limits<double>::infinity();
+		return -std::numeric_limits<double>::infinity();
 	std::string	normalval = input;
 	if (!normalval.empty() && normalval[normalval.length() - 1] == 'f')
 		normalval = normalval.substr(0, normalval.length() - 1);
@@ -52,7 +52,7 @@ double	Convertor::convertToDouble(const std::string &input)
 	return value;
 }
 
-void	Convertor::printChar(double val)
+void	ScalarConvertor::printChar(double val)
 {
 	std::cout << "char: ";
 	if (val < 0 || val > 127 || std::isnan(val) || std::isinf(val))
@@ -63,13 +63,13 @@ void	Convertor::printChar(double val)
 	char c = static_cast<char>(val);
 	if (!std::isprint(c))
 	{
-		std::cout << "Non printable" << std::endl;
+		std::cout << "Non displayable" << std::endl;
 		return ;
 	}
 	std::cout << "'" << c << "'" << std::endl;
 }
 
-void	Convertor::printInt(double val)
+void	ScalarConvertor::printInt(double val)
 {
 	std::cout << "int: ";
 	if (val < INT_MIN || val > INT_MAX || std::isnan(val) || std::isinf(val))
@@ -80,7 +80,7 @@ void	Convertor::printInt(double val)
 	std::cout << static_cast<int>(val) << std::endl;
 }
 
-void	Convertor::printFloat(double val)
+void	ScalarConvertor::printFloat(double val)
 {
 	std::cout << "float: ";
 	float res = static_cast<float>(val);
@@ -103,7 +103,7 @@ void	Convertor::printFloat(double val)
 	std::cout << "f" << std::endl;
 }
 
-void	Convertor::printDouble(double val)
+void	ScalarConvertor::printDouble(double val)
 {
 	std::cout << "double: ";
 	if (std::isnan(val))
@@ -125,7 +125,7 @@ void	Convertor::printDouble(double val)
 	std::cout << std::endl;
 }
 
-void	Convertor::convert(const std::string &input)
+void	ScalarConvertor::convert(const std::string &input)
 {
 	double val = convertToDouble(input);
 

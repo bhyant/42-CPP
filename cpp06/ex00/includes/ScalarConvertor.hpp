@@ -9,13 +9,13 @@
 #include <iostream>
 
 
-class Convertor
+class ScalarConvertor
 {
 	private:
-		Convertor();
-		Convertor(const Convertor &src);
-		Convertor &operator=(const Convertor &src);
-		~Convertor();
+		ScalarConvertor();
+		ScalarConvertor(const ScalarConvertor &src);
+		ScalarConvertor &operator=(const ScalarConvertor &src);
+		~ScalarConvertor();
 		static void	printChar(double val);
 		static void printInt(double val);
 		static void printFloat(double val);

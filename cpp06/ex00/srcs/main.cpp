@@ -7,6 +7,6 @@ int	main(int ac,char **av)
 		std::cout << "Error: Wrong number of args" << std::endl;
 		return 1;
 	}
-	Convertor::convert(av[1]);
+	ScalarConvertor::convert(av[1]);
 	return 0;
 }
