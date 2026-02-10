@@ -4,19 +4,19 @@
 #include <string>
 #include <iostream>
 
-template <typename T>
-void print(T &val)
+template <typename F>
+void print(F &val)
 {
 	std::cout << "Value: " << val << std::endl;
 }
 
-template <typename T>
-void iter(T *array, const std::size_t len, void (*f)(T&))
+template <typename T, typename F>
+void iter(T *array, const std::size_t len, F function)
 {
 	if (!array)
 		return ;
 	for (std::size_t i = 0; i < len; i++)
-		f(array[i]);
+		function(array[i]);
 }
 
 #endif

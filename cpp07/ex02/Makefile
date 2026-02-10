@@ -6,11 +6,11 @@
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/01/05 22:18:40 by tbhuiyan          #+#    #+#              #
-#    Updated: 2026/01/22 20:40:16 by tbhuiyan         ###   ########.fr        #
+#    Updated: 2026/02/10 14:46:00 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME        = whatever
+NAME        = array
 
 CXX         = c++
 CXXFLAGS    = -Wall -Wextra -Werror -std=c++98

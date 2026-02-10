@@ -28,7 +28,7 @@ Array<T>& Array<T>::operator=(const Array& src)
 		if (this->_array)
 			delete[] this->_array;
 		this->_size = src._size;
-		if (size < 0)
+		if (_size < 0)
 			this->_array = NULL;
 		else
 		{
