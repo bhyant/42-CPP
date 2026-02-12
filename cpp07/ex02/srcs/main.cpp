@@ -26,6 +26,13 @@ int main(int, char**)
 	{
 		std::cerr << e.what() << std::endl;
 	}
+	std::cout << "--- Test avec int ---" << std::endl;
+	Array<int> intarray(10);
+	for (unsigned int i = 0; i < intarray.size(); i++)
+	{
+		intarray[i] = i * 2;
+		std::cout << "Value[" << i << "]: " << intarray[i] << std::endl;
+	}
 	return 0;
 }
 
