@@ -44,6 +44,12 @@ Array<T>::~Array()
 }
 
 template <typename T>
+const char* Array<T>::TooHighIndex::what() const throw()
+{
+	return "Error: Index out of bounds";
+}
+
+template <typename T>
 T& Array<T>::operator[](unsigned int index)
 {
 	if (index >= this->_size)

@@ -5,7 +5,7 @@
 #include <iostream>
 
 template <typename F>
-void print(F &val)
+void print(const F &val)
 {
 	std::cout << "Value: " << val << std::endl;
 }

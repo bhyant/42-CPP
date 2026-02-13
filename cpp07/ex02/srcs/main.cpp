@@ -1,7 +1,6 @@
 #include <iostream>
 #include "../includes/Array.hpp"
 
-#define MAX_VAL 750
 int main(int, char**)
 {
 	std::cout << "--- Test avec std::string ---" << std::endl << std::endl;
@@ -21,7 +20,7 @@ int main(int, char**)
 	try
 	{
 		str[100] = "test";
-	} 
+	}
 	catch (std::exception& e)
 	{
 		std::cerr << e.what() << std::endl;
@@ -33,7 +32,61 @@ int main(int, char**)
 		intarray[i] = i * 2;
 		std::cout << "Value[" << i << "]: " << intarray[i] << std::endl;
 	}
+	std::cout << "--- Test Size() ---" << std::endl;
+	std::cout << "str size: " << str.size() << std::endl;
+	std::cout << "intarray size: " << intarray.size() << std::endl;
 	return 0;
 }
 
+// #include <stdlib.h>
 
+// #define MAX_VAL 750
+// int main(int, char**)
+// {
+//     Array<int> numbers(MAX_VAL);
+//     int* mirror = new int[MAX_VAL];
+//     srand(time(NULL));
+//     for (int i = 0; i < MAX_VAL; i++)
+//     {
+//         const int value = rand();
+//         numbers[i] = value;
+//         mirror[i] = value;
+//     }
+//     //SCOPE
+//     {
+//         Array<int> tmp = numbers;
+//         Array<int> test(tmp);
+//     }
+
+//     for (int i = 0; i < MAX_VAL; i++)
+//     {
+//         if (mirror[i] != numbers[i])
+//         {
+//             std::cerr << "didn't save the same value!!" << std::endl;
+//             return 1;
+//         }
+//     }
+//     try
+//     {
+//         numbers[-2] = 0;
+//     }
+//     catch(const std::exception& e)
+//     {
+//         std::cerr << e.what() << '\n';
+//     }
+//     try
+//     {
+//         numbers[MAX_VAL] = 0;
+//     }
+//     catch(const std::exception& e)
+//     {
+//         std::cerr << e.what() << '\n';
+//     }
+
+//     for (int i = 0; i < MAX_VAL; i++)
+//     {
+//         numbers[i] = rand();
+//     }
+//     delete [] mirror;
+//     return 0;
+// }

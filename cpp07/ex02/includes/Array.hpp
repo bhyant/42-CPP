@@ -23,10 +23,7 @@ class Array
 		class TooHighIndex : public std::exception
 		{
 			public:
-				virtual const char* what() const throw()
-				{
-					return "Error: Index out of bounds";
-				}
+				virtual const char* what() const throw();
 		};
 };
 
