@@ -1,5 +1,10 @@
 #include "../includes/easyfind.hpp"
 
+const char*	ValueNotFound::what() const throw()
+{
+	return "Value not found in container";
+}
+
 int main(void)
 {
 	std::cout << "--- TEST CONST CONTAINERS---" << std::endl << std::endl;

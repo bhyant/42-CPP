@@ -6,7 +6,7 @@
 #    By: tbhuiyan <tbhuiyan@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/11 13:00:30 by tbhuiyan          #+#    #+#              #
-#    Updated: 2026/01/29 22:13:32 by tbhuiyan         ###   ########.fr        #
+#    Updated: 2026/02/15 10:47:25 by tbhuiyan         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ INC_DIR     = includes
 INCLUDES    = -I$(INC_DIR)
 
 
-SRCS        = $(SRC_DIR)/main.cpp
+SRCS        = $(SRC_DIR)/main.cpp \
+			  $(SRC_DIR)/Span.cpp
 OBJS        = $(SRCS:$(SRC_DIR)/%.cpp=$(OBJ_DIR)/%.o)
 DEPS        = $(OBJS:.o=.d)
 
