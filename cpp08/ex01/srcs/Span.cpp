@@ -1,5 +1,7 @@
 #include "../includes/Span.hpp"
-#include <ios>
+
+Span::Span() : _max(0), _array(0)
+{}
 
 Span::Span(unsigned int n) : _max(n)
 {
