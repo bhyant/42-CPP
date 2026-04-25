@@ -1,11 +1,14 @@
 #include "../includes/BitcoinExchange.hpp"
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
-	if (ac != 2)
+    if (ac != 2)
 	{
-		std::cerr << "Error: Usage: ./btc path/to/your/files" << std::endl
-		return 1;
-	}
-	
+        std::cerr << "Error: could not open file." << std::endl;
+        return 1;
+    }
+    BitcoinExchange btc;
+    btc.initData("data.csv");
+    btc.parseInput(av[1]);
+    return 0;
 }

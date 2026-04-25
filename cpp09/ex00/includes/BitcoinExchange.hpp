@@ -1,7 +1,7 @@
 #pragma once
 
-#include <iostream>
 #include <map>
+#include <iostream>
 #include <string>
 #include <fstream>
 #include <sstream>
@@ -9,18 +9,17 @@
 
 class BitcoinExchange
 {
-	private:
-		std::map<std::string, float>	_data;
-		bool	parseInput(const std::string& filename) const;
-		bool	checkDate(const std::string& data) const;
-		bool	checkValue(float value) const;
-
 	public:
 		BitcoinExchange();
 		BitcoinExchange(const BitcoinExchange& src);
 		BitcoinExchange& operator=(const BitcoinExchange& src);
 		~BitcoinExchange();
-		void	loadDB(const std::string& filename);
-		void	processInput(const std::string& filename);
 
+		void initData(const std::string& str);
+		void parseInput(const std::string& str);
+
+	private:
+		std::map<std::string, float> _data;
+		bool isValidDate(const std::string& date) const;
+		bool isValidValue(const std::string& str, float& value) const;
 };
