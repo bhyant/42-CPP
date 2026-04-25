@@ -17,7 +17,6 @@ RPN&	RPN::operator=(const RPN& src)
 
 RPN::~RPN()
 {
-	std::cout << "RPN destructor called" << std::endl;
 }
 
 bool RPN::isOperator(char c) const
